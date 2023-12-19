@@ -1,0 +1,299 @@
+:root {
+  --mainBgColor: rgba(20, 20, 31, 11);
+  --secondaryBgColor: rgba(27, 27, 39, 1);
+  --borderColor1: rgba(40, 41, 57, 1);
+  --borderColor2: rgba(79, 86, 105, 1);
+  --textColorMain: #fff;
+  --textColorSecondary: rgb(226, 227, 232);
+  --themeColorMain: rgba(219, 26, 90, 1);
+  --themeColorSecondary: #386fd2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #40e0d0;
+}
+
+body {
+  background-color: var(--mainBgColor);
+  color: var(--textColorMain);
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Login & Register Pages */
+
+.auth--container {
+  height: 100vh;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth--container2 {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form--wrapper {
+  width: 600px;
+  width: 600px;
+  padding: 2em;
+}
+
+.field--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em 0;
+}
+
+
+
+/* Form Input Styling */
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  background: var(--mainBgColor);
+  border: none;
+  border-bottom: 1px solid var(--borderColor1);
+  padding: 1rem;
+  border-radius: 3px;
+  width: 100%;
+  color: var(--color-light);
+  outline: none;
+  font-size: 18px;
+  text-shadow: none !important;
+}
+
+.formStyle {
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  border-radius: 20px;
+
+}
+
+
+/* Button Styling */
+
+.btn {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn--lg {
+  padding: 1em 2em;
+}
+
+.btn--main {
+  background-color: rgba(219, 26, 90, 1);
+  color: #fff;
+}
+
+.btn--secondary {
+  background-color: #8db3dd;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Header Styling */
+
+#header--wrapper {
+  background-color: var(--mainBgColor);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid var(--borderColor1);
+  border-bottom: none;
+}
+
+.header--link {
+  color: #c7d8eb;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header--link:hover {
+  color: #8db3dd;
+}
+
+/* Room Styling */
+
+.room--container {
+  padding: 2em;
+  background-color: var(--secondaryBgColor);
+  border-radius: 0 0 10px 10px;
+  border: 1px solid var(--borderColor1);
+}
+
+#message--form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.send-btn--wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 1em;
+}
+
+.message--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message--body {
+  padding: 0.5em 0;
+  color: var(--textColorSecondary);
+  background-color: var(--themeColorMain);
+  padding: 1em;
+  border-radius: 20px;
+  width: fit-content;
+  max-width: 100%;
+  word-wrap: break-word;
+  /* added */
+}
+
+.message--body--owner {
+  border: 1px solid rgba(219, 26, 90, 1);
+  background-color: var(--secondaryBgColor);
+}
+
+.message-timestamp {
+  margin-left: 1em;
+  color: rgb(164, 161, 161);
+}
+
+.delete--btn {
+  color: #8db3dd;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 16px;
+}
+
+.delete--btn:hover {
+  color: red;
+}
+
+/* spinner */
+.lds-dual-ring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Registartion Form */
+
+.register--header {
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.input--div {
+  max-width: 1920px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 30px;
+  color: 'white';
+  border-color: white;
+}
+
+.error {
+  color: red;
+  font-size: small;
+}
+
+.deleteBtnDiv {
+  max-width: 1920px;
+  width: full;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.deleteBtn {
+  padding: 0.7rem;
+  border-radius: 20px;
+  color: black;
+  background-color: white;
+}
+
+.deleteBtn:hover {
+  padding: 0.75rem;
+  transition: all 0.3s;
+}
+
+.spinner-div {
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+}
