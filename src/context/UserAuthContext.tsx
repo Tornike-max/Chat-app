@@ -9,6 +9,7 @@ import { account } from "../appWriteConfig";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ID, Models } from "appwrite";
+import Spinner from "../ui/Spinner";
 
 type UserType = Models.User<Models.Preferences>;
 
@@ -38,7 +39,7 @@ type UserProviderProps = {
 export function UserProvider({ children }: UserProviderProps) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<UserType | null>(null);
   useEffect(() => {
     getUser();
   }, []);
@@ -49,8 +50,9 @@ export function UserProvider({ children }: UserProviderProps) {
       setUser(accountDetails);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   async function login(email: string, password: string) {
@@ -64,6 +66,8 @@ export function UserProvider({ children }: UserProviderProps) {
       setLoading(false);
     } catch {
       toast.error("Error while login");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -91,6 +95,8 @@ export function UserProvider({ children }: UserProviderProps) {
       navigate("/");
     } catch {
       toast.error("Error while registering");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -104,7 +110,7 @@ export function UserProvider({ children }: UserProviderProps) {
 
   return (
     <UserContext.Provider value={contextValue}>
-      {loading ? <p>Loading...</p> : children}
+      {loading ? <Spinner /> : children}
     </UserContext.Provider>
   );
 }

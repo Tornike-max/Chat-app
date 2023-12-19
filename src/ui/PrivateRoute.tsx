@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 export default function PrivateRoute() {
   const { user, loading } = useUser();
 
-  if (loading || user === null) return <Spinner />;
+  if (loading) return <Spinner />;
 
   return <>{user ? <Outlet /> : <Navigate to="/login" />}</>;
 }

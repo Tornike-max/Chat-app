@@ -20,16 +20,21 @@ export async function createMessage({
 }: {
   dataObj: { body: string; username?: string; user_id?: string };
 }) {
-  const userId = dataObj?.user_id;
-  const permissions = [Permission.write(Role.user(userId))];
-  const data = databases.createDocument(
-    DATABASE_ID,
-    COLLECTION_ID,
-    ID.unique(),
-    dataObj,
-    permissions
-  );
-  return data;
+  const userId = dataObj?.user_id || "";
+
+  if (userId !== undefined) {
+    const permissions = [Permission.write(Role.user(userId))];
+    const data = databases.createDocument(
+      DATABASE_ID,
+      COLLECTION_ID,
+      ID.unique(),
+      dataObj,
+      permissions
+    );
+    return data;
+  } else {
+    throw new Error("User ID is undefined");
+  }
 }
 
 export async function deleteMessage(id: string) {
